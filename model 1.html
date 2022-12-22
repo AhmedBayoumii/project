@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
+
+
+    <title>A Weather Model</title>
+    <link rel="icon" type="image/x-icon" href="cloudy.png">
+  </head>
+  <body id="body">
+    <style>
+     #body{
+        background-image: url("weather.jpg");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        width: 100%;
+        height: 100%;
+      }
+      .label{
+        font-size: 2vw;
+        font-family: sans-serif;
+      }
+      #weather{
+        font-size: 2vw sans-serif;
+        border-radius: 4px;
+        background: none;
+        color: black;
+        font-weight: bold;
+      }
+    </style>
+<label for="weather" class="label"><h2>Select the weather type today: </h2></label>
+<select id="weather">
+  <option value="">--Make a choice--</option>
+  <option value="sunny">Sunny</option>
+  <option value="rainy">Rainy</option>
+  <option value="snowing">Snowing</option>
+  <option value="overcast">Overcast</option>
+</select>
+
+
+<p></p>
+<script>
+    const select = document.querySelector('select');
+const para = document.querySelector('p');
+
+select.addEventListener('change', setWeather);
+
+function setWeather() {
+  const choice = select.value;
+  // $("#body").css("background-width","100%");
+
+
+  if (choice === 'sunny') {
+    para.textContent = 'It is nice and sunny outside today. Wear shorts! Go to the beach, or the park, and get an ice cream.'
+    document.body.style.backgroundImage = "url('sunny.jpg')"
+    document.body.style.backgroundSize = "auto"
+    document.body.style.fontFamily = "sans-serif"
+    document.body.style.fontSize ="2vw"
+    document.body.style.fontWeight = "bold"
+    document.body.style.backgroundAttachment = "scroll";
+
+    document.body.style.color= "gold";
+  } else if (choice === 'rainy') {
+    para.textContent = 'Rain is falling outside; take a rain coat and an umbrella, and don\'t stay out for too long.'
+    document.body.style.backgroundImage = "url('rainy.jpg')"
+    document.body.style.backgroundRepeat = "no-repeat"
+    document.body.style.backgroundSize = "auto" 
+       document.body.style.fontFamily = "sans-serif"
+    document.body.style.fontSize ="2vw"
+    document.body.style.fontWeight = "bold"
+    document.body.style.color= "gold";
+  } else if (choice === 'snowing') {
+    para.textContent = 'The snow is coming down — it is freezing! Best to stay in with a cup of hot chocolate, or go build a snowman.'
+    document.body.style.backgroundImage = "url('snowing.jpg')"
+    document.body.style.backgroundSize = "auto"
+    document.body.style.fontFamily = "sans-serif"
+    document.body.style.fontSize ="2vw"
+    document.body.style.fontWeight = "bold"
+    document.body.style.color= "black";
+  } else if (choice === 'overcast') {
+    para.textContent = 'It isn\'t raining, but the sky is grey and gloomy; it could turn any minute, so take a rain coat just in case.'
+    document.body.style.backgroundImage = "url('overcast.jpg')"
+    document.body.style.backgroundSize = "auto"
+    document.body.style.fontFamily = "sans-serif"
+    document.body.style.fontSize ="2vw"
+    document.body.style.fontWeight = "bold"
+    document.body.style.color= "gold";
+  } else {
+    para.textContent = ''
+    document.body.style.backgroundImage = "url('weather.jpg')"
+    document.body.style.BackgroundSize = "auto"
+    document.body.style.fontFamily = "sans-serif"
+    document.body.style.fontSize ="larger"
+    document.body.style.fontWeight = "bold"
+    document.body.style.color= "gold";
+  }
+}
+</script>
+</body>
+</html>
